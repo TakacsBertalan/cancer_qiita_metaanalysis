@@ -1,1 +1,1 @@
-# cancer_qiita_metaanalysis
+# Metaanalysis of cancer microbiome data from Qiita
