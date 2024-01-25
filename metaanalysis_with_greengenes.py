@@ -163,18 +163,16 @@ calculate_metrics_and_save(fresh_frozen_data.filtered_table, "./slurm_results/wi
 
 sepp_filtered_table,sepp_removed_table = filter_features(feature_filtered_data.filtered_table,sepp_tree)
 
-gg_classifier = qiime2.Artifact.load("/projects/cancer_qiita/btakacs/metaanalysis/gg_2022_10_backbone_full_length.nb.qza")
-gg_old_classifier = qiime2.Artifact.load("./phylogenetic_trees/gg-13-8-99-nb-weighted-classifier.qza")
+gg_classifier = qiime2.Artifact.load("/projects/cancer_qiita/btakacs/metaanalysis/phylogenetic_trees/gg-13-8-99-nb-weighted-classifier.qza")
 
-silva_classifier = qiime2.Artifact.load("./phylogenetic_trees/silva-119-99-nb-classifier.qza")
 taxonomy = feature_classifier.methods.classify_sklearn(reads = sequences,
-                                                       classifier = gg_old_classifier)
+                                                       classifier = gg_classifier)
 
-taxonomy.classification.save("./slurm_results/with_sepp_tree/classification/gg_138_taxonomy_2211.qza")
+taxonomy.classification.save("./slurm_results/with_sepp_tree/classification/gg_138_taxonomy.qza")
 
 taxonomy_classification = metadata.visualizers.tabulate(taxonomy.classification.view(qiime2.Metadata))
-taxonomy_classification.visualization.save("./slurm_results/with_sepp_tree/classification/silva_119_taxonomy_classification")
+taxonomy_classification.visualization.save("./slurm_results/with_sepp_tree/classification/gg_138_taxonomy_classification")
 
 
 taxa_bar_plot = taxa.visualizers.barplot(sepp_filtered_table, taxonomy.classification, meta)
-taxa_bar_plot.visualization.save("./slurm_results/with_sepp_tree/classification/silva_119_taxa_bar_plot.qzv")
+taxa_bar_plot.visualization.save("./slurm_results/with_sepp_tree/classification/gg_138_taxa_bar_plot.qzv")
