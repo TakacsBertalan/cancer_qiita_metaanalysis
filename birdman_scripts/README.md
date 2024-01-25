@@ -17,7 +17,11 @@ Steps:
 
 It can be a good idea to collapse your data on the genus level before running birdman. For this, use the [collapse()](https://docs.qiime2.org/2023.9/plugins/available/taxa/collapse/) qiime2 command. Genus corresponds to taxonomic level 6.
 
-To collapse your data:
+# To get your taxonomy.tsv file:
+
+Download the output of `taxonomy.classification.save` (line 171 in the `metaanalysis_with_greengenes.py` script), change the extension to `.zip`, extract it and find the taxonomy.tsv file in the `data` folder
+
+# To collapse your data:
 
 `import qiime2`
 
