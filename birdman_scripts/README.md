@@ -16,3 +16,17 @@ Steps:
 10. Import the .tsv file into the `birdman_analysis.ipynb` Jupyter notebook. Change your filepath, dataset name and add path to your taxonomy file (coming from the sklearn classification) if needed. Taxonomy can be skipped, if your input biom table already has the information. Run the notebook
 
 It can be a good idea to collapse your data on the genus level before running birdman. For this, use the [collapse()](https://docs.qiime2.org/2023.9/plugins/available/taxa/collapse/) qiime2 command. Genus corresponds to taxonomic level 6.
+
+To collapse your data:
+
+`import qiime2`
+
+`from qiime2.plugins.taxa.methods import collapse` 
+
+`table = qiime2.Artifact.load("[path to your unrarefied feature table]")` 
+
+`taxonomy = qiime2.Artifact.import_data("FeatureData[Taxonomy]", "[path to your taxonomy.tsv file]")` 
+
+`collapsed_table = collapse(table, taxonomy, 6)` 
+
+`collapsed_table.collapsed_table.save("[output path]")`
