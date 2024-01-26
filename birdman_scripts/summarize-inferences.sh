@@ -1,4 +1,6 @@
 #!/home/btakacs/miniconda3/envs/birdman/bin/python
+#Type "which python" in your terminal and replace the above line with the output!
+
 #Replace this with a directory path where the slurm outputs will go
 #SBATCH --output=/panfs/btakacs/cancer_qiita/birdman/slurm_out_birdman-2-gibs-genus/%x.out
 #SBATCH --partition=short
