@@ -7,23 +7,20 @@
 #SBATCH --cpus-per-task=1       # number of cores per task
 #SBATCH --nodes=1               # number of nodes
 #SBATCH --mail-type=ALL         #Mail to recive
-#SBATCH --mail-user=btakacs@health.ucsd.edu
 
 <<com
-Date: 12/11/23
 
 Goal: Run rpca scripts
-Qiita ID # 14283 
 com
 
 #Conda env: qiime2-2022.11
-"""
+
 qiime tools import \
   --input-path 188082_61035_analysis_16S_Deblur202109ReferencephylogenyforSEPPGreengenes138BIOMreferencehitbiomTrimminglength150_insertion_filter.biom \
   --output-path ./mucosa_added_results/rpca_with_mucosa/imported_with_mucosa.qza \
   --input-format BIOMV210Format \
   --type "FeatureTable[Frequency]"
-"""
+
 qiime feature-table rarefy \
     --i-table /projects/cancer_qiita/btakacs/metaanalysis/mucosa_added_results/12_01_feature_table_filtered_2211.qza \
     --p-sampling-depth 13000 \
