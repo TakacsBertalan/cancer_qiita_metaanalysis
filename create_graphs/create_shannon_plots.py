@@ -31,8 +31,6 @@ def create_boxplot():
 	plt.show()
 			   
 def create_violin_and_swarm():
-	sns.set_style(style='darkgrid', rc={"axes.facecolor":"lightgrey"})
-	my_palette = sns.color_palette("deep", desat = 0.8)
 	violin = sns.violinplot(x ='tissue_type', y ='shannon_entropy', data = metadata, hue = "tissue_type", palette = my_palette)
 	swarm = sns.swarmplot(x ='tissue_type', y ='shannon_entropy', data = metadata, hue = "fixation_method", palette = {"FFPE":"#ffff00", "Fresh frozen": "#0000ff", "Other": "#f27304"}, s = 4.22)
 	sns.move_legend(swarm, "center left", bbox_to_anchor=(1,0.5))
