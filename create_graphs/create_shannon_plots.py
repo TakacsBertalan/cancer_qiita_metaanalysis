@@ -5,7 +5,7 @@ import numpy as np
 from sys import argv
 
 
-##Usage: python create_plot.py [filepath] [plot type: box/violin]
+##Usage from terminal: python create_plot.py [path to your tsv file] [plot type: box/violin]
 ##Make sure that your input data is tsv format and has a shannon_entropy column
 ##Or modify this script to fit your needs
 
