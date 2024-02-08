@@ -48,6 +48,7 @@ def create_violin_and_swarm():
 	violin = sns.violinplot(x = plot_by, y ='shannon_entropy', data = metadata, hue = color_box_by, palette = my_palette)
 	swarm = sns.swarmplot(x = plot_by, y ='shannon_entropy', data = metadata, hue = color_swarm_by, s = 4.22)
 	sns.move_legend(swarm, "center left", bbox_to_anchor=(1,0.5))
+	#Comment out the next line if you don't want to add statistical comparisons
 	add_stats(violin)
 	plt.show()
 
