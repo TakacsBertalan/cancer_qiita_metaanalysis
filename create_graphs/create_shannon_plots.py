@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from sys import argv
-
+from statannotations.Annotator import Annotator
 
 ##Usage from terminal: python create_plot.py [path to your tsv file] [plot type: box/violin]
 ##Make sure that your input data is tsv format and has a shannon_entropy column
@@ -36,11 +36,19 @@ def create_boxplot():
 	hue = color_box_by,
 	palette = "tab10")
 	plt.show()
-			   
+
+def add_stats(plot):
+	unique_methods = metadata[plot_by].unique()
+	pairs = [(unique_methods[i], unique_methods[j]) for i in range(len(unique_methods)) for j in range(i+1, len(unique_methods))]
+	annotator = Annotator(plot, pairs, data=metadata, x=plot_by, y='shannon_entropy')
+	annotator.configure(test='Kruskal', comparisons_correction='Bonferroni', text_format='star', loc='outside', verbose=2)
+	annotator.apply_and_annotate()
+	
 def create_violin_and_swarm():
 	violin = sns.violinplot(x = plot_by, y ='shannon_entropy', data = metadata, hue = color_box_by, palette = my_palette)
 	swarm = sns.swarmplot(x = plot_by, y ='shannon_entropy', data = metadata, hue = color_swarm_by, s = 4.22)
 	sns.move_legend(swarm, "center left", bbox_to_anchor=(1,0.5))
+	add_stats(violin)
 	plt.show()
 
 if plot_type == "box":
