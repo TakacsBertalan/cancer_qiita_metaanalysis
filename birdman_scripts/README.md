@@ -5,8 +5,7 @@ This readme is based on Hazel Dilmore's [MARS Birdman project](https://github.co
 Steps:
 1. Install Birdman according to the instructions in the MARS_Birdman repo, in a new conda env
 2. Clone or download this folder to your folder on barnacle
-3. Compile your stan model: in your birdman environment run the following in Python. You only need to do this once.
-
+3. Compile your stan model (model_single.stan): in your birdman environment run the following in Python. You only need to do this once.
   `import cmdstanpy`
   `cmdstanpy.CmdStanModel(stan_file="[your_path/to/model.stan]")`
 5. Change the filepaths and model name in your `model_single.py` file. Use the unrarefied feature table as an input: download the .qza file, change the extension to .zip, and move the `feature_table.biom` file back to barnacle.
