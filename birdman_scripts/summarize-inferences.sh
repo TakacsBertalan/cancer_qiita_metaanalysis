@@ -25,7 +25,7 @@ for inference_dir in glob.glob('/panfs/btakacs/cancer_qiita/birdman/inferences_b
 
     FEAT_REGEX = re.compile("F\d{4}_(.*).nc")
     omic_ = inference_dir.split('/')[-1]
-    #Replace this with a filepath to your results folder. If not exists, it will be created
+    #Replace this with a filepath to your results folder. If the folder does not exists, it will be created
     output_folder = ""
 
     if not os.path.exists(output_folder):
