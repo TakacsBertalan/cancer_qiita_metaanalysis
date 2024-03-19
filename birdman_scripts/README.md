@@ -1,6 +1,6 @@
 ## How to run Birdman
 
-This readme is based on Hazel Dilmore's [MARS Birdman project](https://github.com/ahdilmore/MARS_Birdman)
+This tutorial is on the use of[BIRDMAn: A Bayesian differential abundance framework that enables robust inference of host-microbe associations](https://www.biorxiv.org/content/10.1101/2023.01.30.526328v1) and is based on Hazel Dilmore's [MARS Birdman project](https://github.com/ahdilmore/MARS_Birdman)
 
 Steps:
 1. Install Birdman according to the instructions in the MARS_Birdman repo, in a new conda env
